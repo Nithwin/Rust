@@ -1,20 +1,20 @@
 /*
     topic: User Input (IO)
-    
+
     DEEP DIVE THEORY:
     =================
     Interacting with the user involves `std::io`.
-    
+
     The Buffer:
     When you read input, you need a place to store it. In Rust, we use a mutable `String`.
     This string acts as a buffer that grows to fit whatever the user types.
-    
+
     References:
-    `read_line(&mut buffer)` takes a mutable reference. It needs to change the content of the buffer, 
+    `read_line(&mut buffer)` takes a mutable reference. It needs to change the content of the buffer,
     but it doesn't need to take ownership of the buffer itself.
-    
+
     Result Type:
-    IO operations can fail (e.g., keyboard disconnected, stream closed). 
+    IO operations can fail (e.g., keyboard disconnected, stream closed).
     Rust captures this possibility in a `Result` type (`Ok` or `Err`).
     We must handle this result. `.expect()` is a quick way to say "If Err, crash with this message. If Ok, give me the value".
 */
@@ -37,24 +37,24 @@ fn main() {
         .expect("Failed to read line");
 
     println!("Read {} bytes.", bytes_read);
-    
+
     // 3. Parse Input
     // Input usually contains the newline character `\n` or `\r\n`.
     // We MUST trim() it before using it or parsing usage.
     let name = name.trim();
-    
+
     println!("Hello, {}!", name);
-    
+
     // Number Example
     print!("Enter your age: ");
     io::stdout().flush().unwrap();
-    
+
     let mut age_str = String::new();
     io::stdin().read_line(&mut age_str).unwrap();
-    
+
     // Parse string to integer
     let age: u32 = age_str.trim().parse().expect("Please type a number!");
-    
+
     println!("In 5 years you will be {}.", age + 5);
 }
 

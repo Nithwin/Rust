@@ -1,18 +1,18 @@
 /*
     topic: Types - Enums
-    
+
     DEEP DIVE THEORY:
     =================
     Enums (Enumerations) allow you to define a type by enumerating its possible variants.
-    
+
     Superpowered Enums:
     In C/C++, enums are mostly just integers. In Rust, enum variants can hold **data**.
     This eliminates the need for "Tagged Unions" or "Variant" classes found in other languages.
-    
+
     The Option Enum:
     Rust does NOT have `null`. A value is either present (`Some(T)`) or absent (`None`).
     This forces you to handle the "missing" case explicitly, preventing Null Pointer Exceptions (The Billion Dollar Mistake).
-    
+
     enum Option<T> {
         Some(T),
         None,
@@ -41,11 +41,11 @@ impl Message {
 fn main() {
     let msg = Message::Write(String::from("Hello Rust"));
     msg.call();
-    
+
     // 2. Option<T>
     let some_number = Some(5);
     let absent_number: Option<i32> = None;
-    
+
     // We must unwrap or match to use the value. We can't just add 5 + some_number.
     if let Some(n) = some_number {
         println!("We have a number: {}", n);

@@ -1,78 +1,64 @@
-# Rust Systems Foundation: Zero to Hero 🦀
+# 🦀 Rust: Zero to Hero
 
-> "The journey of a thousand miles begins with a single `println!`."
+Welcome! You've just found your new favorite place to learn Rust.
 
-Welcome to **Rust Systems Foundation**. This repository is your complete guide to mastering Rust, starting from the absolute basics of printing text to the screen, all the way to advanced memory management and building your own operating system tools.
+This isn't just a list of files. It's a carefully crafted journey designed to take you from printing "Hello World" to building complex, high-performance systems. Whether you're here to fix a broken async function or just curious about why everyone loves the borrow checker, you're in the right place.
 
-## Course Structure
+## 🗺️ Your Journey
 
-The course is organized into sequential folders. We recommend following them in order.
+We've organized your path into clear, manageable steps.
 
-### 01. The Basics (`01_basics/`)
-Master the syntax, the standard library, and the unique memory model of Rust.
+### Level 1: The Foundation (`01_basics`)
+Start here. We cover everything you need to feel comfortable reading and writing Rust.
 
-| Phase | Module | Description |
+| Module | What You'll Learn | Challenge yourself! |
 | :--- | :--- | :--- |
-| **Primitives** | [01_variables.rs](./01_basics/src/bin/01_variables.rs) | `let`, `mut`, Shadowing. |
-| | [02_data_types.rs](./01_basics/src/bin/02_data_types.rs) | Integers, Floats, Chars. |
-| | [03_operators.rs](./01_basics/src/bin/03_operators.rs) | Math & Logic. |
-| **Compounds** | [04_tuples_arrays.rs](./01_basics/src/bin/04_tuples_arrays.rs) | Fixed-size groups. |
-| | [05_strings.rs](./01_basics/src/bin/05_strings.rs) | `String` (Heap) vs `&str` (Stack). |
-| | [06_input.rs](./01_basics/src/bin/06_input.rs) | Reading usage input. |
-| **Control Flow** | [07_conditionals.rs](./01_basics/src/bin/07_conditionals.rs) | `if`, `else`, `let if`. |
-| | [08_loops.rs](./01_basics/src/bin/08_loops.rs) | `loop`, `while`, `for`. |
-| | [09_functions.rs](./01_basics/src/bin/09_functions.rs) | Parameters & Return values. |
-| **Types** | [10_structs.rs](./01_basics/src/bin/10_structs.rs) | Custom objects. |
-| | [11_enums.rs](./01_basics/src/bin/11_enums.rs) | Variants & `Option<T>`. |
-| **Memory** | [12_ownership.rs](./01_basics/src/bin/12_ownership.rs) | **The Core Concept.** |
-| | [13_references.rs](./01_basics/src/bin/13_references.rs) | Borrowing rules. |
-| | [14_slices.rs](./01_basics/src/bin/14_slices.rs) | Views into memory. |
-| **Collections** | [15_vectors.rs](./01_basics/src/bin/15_vectors.rs) | Growable arrays. |
-| | [16_hashmaps.rs](./01_basics/src/bin/16_hashmaps.rs) | Key-Value stores. |
-| **Errors** | [17_errors.rs](./01_basics/src/bin/17_errors.rs) | `Result<T, E>` and `panic!`. |
+| **Variables** | `let` vs `mut`, Shadowing | [Fix the Bug](01_basics/challenges/01_variables.rs) |
+| **Data Types** | Integers, Floats, Boolean | [Fix the Overflow](01_basics/challenges/02_data_types.rs) |
+| **Operators** | Math & Logic | [Fix the Math](01_basics/challenges/03_operators.rs) |
+| **Ownership** | **The Core Concept** | [Fix the Move](01_basics/challenges/12_ownership.rs) |
+| **Structs** | Custom Types | [Fix Visibility](01_basics/challenges/10_structs.rs) |
+| ... and more! | Slices, Vectors, HashMaps, Errors... | Check the `challenges/` folder! |
 
-### 02. Hex Viewer Project (`02_hex_viewer/`)
-**Goal:** Build a tool to inspect binary files byte-by-byte.
-- [Source Code](./02_hex_viewer/src/main.rs)
-- **Concepts:** File I/O, Buffers, Bitwise Operations.
+> **💡 Pro Tip:** Each topic has a corresponding challenge in the `challenges/` subfolder. 
+> To run a challenge: `cargo run -p basics --bin challenge_01_variables`
 
-### 03. Safe Shell Project (`03_safe_shell/`)
-**Goal:** Build a command-line interface that manages processes.
-- [Source Code](./03_safe_shell/src/main.rs)
-- **Concepts:** Syscalls, Process Management, REPL patterns.
+### Level 2: Building Real Tools
+Theory is great, but building stuff is better.
 
-### 04. Advanced Topics (`04_advanced/`)
-**Goal:** Unlock the full power of Rust.
+- **02_hex_viewer**: Build a CLI tool to inspect binary files (like a hacker!).
+- **03_safe_shell**: Create your own mini-shell to manage processes.
 
-| Module | Description |
-| :--- | :--- |
-| [01_smart_pointers.rs](./04_advanced/src/bin/01_smart_pointers.rs) | `Box`, `Rc`, `RefCell`. |
-| [02_concurrency.rs](./04_advanced/src/bin/02_concurrency.rs) | Threads & Mutexes. |
-| [03_unsafe.rs](./04_advanced/src/bin/03_unsafe.rs) | Raw Pointers & FFI. |
+### Level 3: Advanced Concepts (`04_advanced`)
+Ready for the heavy lifting?
 
-## How to Run the Code
+| Module | What You'll Learn | Challenge yourself! |
+| :--- | :--- | :--- |
+| **Smart Pointers** | `Box`, `Rc`, `RefCell` | [Fix Box Usage](04_advanced/challenges/01_smart_pointers.rs) |
+| **Concurrency** | Threads & Mutexes | [Fix Thread Safety](04_advanced/challenges/02_concurrency.rs) |
+| **Async** | `async` / `await` | [Fix the Future](04_advanced/challenges/04_async.rs) |
+| **Macros** | Metaprogramming | [Fix Macro Syntax](04_advanced/challenges/05_macros.rs) |
 
-1. **Install Rust:** [rustup.rs](https://rustup.rs/)
-2. **Clone the Repo:**
-   ```bash
-   git clone https://github.com/YourUsername/rust-systems-foundation.git
-   cd rust-systems-foundation
-   ```
-3. **Run a Module:**
-   To run a specific lesson (e.g., Variables):
-   ```bash
-   cargo run --bin 01_variables
-   ```
-   *Note: This works because `01_basics` is part of the workspace.*
+## 🚀 How to Start
 
-4. **Run a Project:**
-    To run the Hex Viewer:
+1.  **Clone this repo:**
     ```bash
-    cargo run -p hex_viewer -- <file_path>
+    git clone https://github.com/YourUsername/rust-zero-to-hero.git
+    cd rust-zero-to-hero
     ```
 
-## Contributing
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+2.  **Pick a topic.**
+    Open `01_basics/src/bin/01_variables.rs` to read the lesson.
 
-## License
-MIT License. See [LICENSE](./LICENSE).
+3.  **Break things (and fix them).**
+    Open `01_basics/challenges/01_variables.rs`. It's broken on purpose!
+    Run it, read the error, and fix it:
+    ```bash
+    cargo run -p basics --bin challenge_01_variables
+    ```
+
+## 🤝 Contributing
+Found a typo? Have a better explanation? We'd love your help! feel free to open a PR.
+
+---
+*Happy Coding! 🦀*

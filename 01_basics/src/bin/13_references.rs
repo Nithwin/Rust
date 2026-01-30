@@ -1,16 +1,16 @@
 /*
     topic: References and Borrowing
-    
+
     DEEP DIVE THEORY:
     =================
     We often want to use a value without taking ownership of it. This is called **Borrowing**.
     We create a **Reference** using `&`.
-    
+
     The Rules of Borrowing (The Borrow Checker):
-    1. At any given time, you can have **EITHER** one mutable reference (`&mut T`) 
+    1. At any given time, you can have **EITHER** one mutable reference (`&mut T`)
        **OR** any number of immutable references (`&T`).
     2. References must always be valid (no null pointers, no dangling pointers).
-    
+
     Why?
     This prevents **Data Races** at compile time. A data race occurs when:
     - Two pointers access the same data.
@@ -32,13 +32,13 @@ fn main() {
 
     // 3. The Rules (Race Condition Prevention)
     let mut s3 = String::from("hello");
-    
+
     let r1 = &s3; // OK
     let r2 = &s3; // OK
     // let r3 = &mut s3; // EXTREME ERROR! Cannot borrow mutably while immutable borrows exist.
-    
+
     println!("{}, {}", r1, r2); // Scope of r1/r2 ENDS here (Non-Lexical Lifetimes).
-    
+
     let r3 = &mut s3; // Now OK, because r1/r2 are no longer used.
     r3.push_str(" world");
     println!("{}", r3);

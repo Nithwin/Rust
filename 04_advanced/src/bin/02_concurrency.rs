@@ -1,31 +1,31 @@
 /*
     topic: Concurrency
-    
+
     DEEP DIVE THEORY:
     =================
     Concurrency means parts of a program execute independently.
     Parallelism means they execute at the exact same time.
     Rust enables "Fearless Concurrency".
-    
+
     1. **Threads**: `thread::spawn`.
        - Runs code in a new OS thread.
        - `join()` ensures the thread finishes before main exits.
        - `move` closure allows transferring ownership of data INTO the thread.
-       
+
     2. **Message Passing**: Channels (`mpsc`).
        - "Do not communicate by sharing memory; share memory by communicating." (Go slogan, adopted by Rust).
        - `tx` (Transmitter) can be cloned (Multi-producer).
        - `rx` (Receiver) is single-consumer.
-       
+
     3. **Shared State**: `Mutex<T>` (Mutual Exclusion).
        - Only one thread can access data at a time.
        - `lock()` blocks until access is granted.
        - Often wrapped in `Arc<T>` (Atomic Reference Counted) to share across threads.
 */
 
+use std::sync::{Arc, Mutex, mpsc};
 use std::thread;
 use std::time::Duration;
-use std::sync::{mpsc, Arc, Mutex};
 
 fn main() {
     // 1. Threads
@@ -45,7 +45,7 @@ fn main() {
 
     // 2. Channels
     let (tx, rx) = mpsc::channel();
-    
+
     thread::spawn(move || {
         let val = String::from("hi");
         tx.send(val).unwrap();

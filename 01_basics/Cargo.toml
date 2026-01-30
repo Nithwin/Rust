@@ -4,3 +4,83 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+
+[[bin]]
+name = "challenge_01_variables"
+path = "challenges/01_variables.rs"
+
+[[bin]]
+name = "challenge_02_data_types"
+path = "challenges/02_data_types.rs"
+
+[[bin]]
+name = "challenge_03_operators"
+path = "challenges/03_operators.rs"
+
+[[bin]]
+name = "challenge_04_tuples_arrays"
+path = "challenges/04_tuples_arrays.rs"
+
+[[bin]]
+name = "challenge_05_strings"
+path = "challenges/05_strings.rs"
+
+[[bin]]
+name = "challenge_06_input"
+path = "challenges/06_input.rs"
+
+[[bin]]
+name = "challenge_07_conditionals"
+path = "challenges/07_conditionals.rs"
+
+[[bin]]
+name = "challenge_08_loops"
+path = "challenges/08_loops.rs"
+
+[[bin]]
+name = "challenge_09_functions"
+path = "challenges/09_functions.rs"
+
+[[bin]]
+name = "challenge_10_structs"
+path = "challenges/10_structs.rs"
+
+[[bin]]
+name = "challenge_11_enums"
+path = "challenges/11_enums.rs"
+
+[[bin]]
+name = "challenge_12_ownership"
+path = "challenges/12_ownership.rs"
+
+[[bin]]
+name = "challenge_13_references"
+path = "challenges/13_references.rs"
+
+[[bin]]
+name = "challenge_14_slices"
+path = "challenges/14_slices.rs"
+
+[[bin]]
+name = "challenge_15_vectors"
+path = "challenges/15_vectors.rs"
+
+[[bin]]
+name = "challenge_16_hashmaps"
+path = "challenges/16_hashmaps.rs"
+
+[[bin]]
+name = "challenge_17_errors"
+path = "challenges/17_errors.rs"
+
+[[bin]]
+name = "challenge_18_traits"
+path = "challenges/18_traits.rs"
+
+[[bin]]
+name = "challenge_19_iterators_closures"
+path = "challenges/19_iterators_closures.rs"
+
+[[bin]]
+name = "challenge_20_testing"
+path = "challenges/20_testing.rs"

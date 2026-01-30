@@ -1,18 +1,18 @@
 /*
     topic: Control Flow - Conditionals
-    
+
     DEEP DIVE THEORY:
     =================
     1. **if/else**:
-       - The condition MUST be a boolean. Rust will not automatically convert numbers to bools 
+       - The condition MUST be a boolean. Rust will not automatically convert numbers to bools
          (e.g., `if 1 { ... }` is an error, unlike C).
        - Blocks `{}` are mandatory. You cannot omit them for single lines.
-    
+
     2. **let if (Expression)**:
        - In Rust, `if` is an **expression**, meaning it returns a value.
        - You can use this to assign values based on a condition cleanly.
        - Both arms of the `if/else` must return the SAME type.
-    
+
     3. **match**:
        - Rust's superpower. It's like a `switch` statement but exhaustive.
        - You MUST handle every possible case.
@@ -35,7 +35,7 @@ fn main() {
     let condition = true;
     let number = if condition { 5 } else { 6 };
     // let error = if condition { 5 } else { "six" }; // ERROR: incompatible types
-    
+
     println!("Number is: {}", number);
 
     // 3. match (Preview)
@@ -58,7 +58,7 @@ fn main() {
        - 70-79 = "C"
        - Below 70 = "F"
     3. Print "Score: [score], Grade: [grade]".
-    
+
     Bonus: Try to do step 2 using `let grade = if ...` assignment.
 
     INPUT/OUTPUT TEST CASES:

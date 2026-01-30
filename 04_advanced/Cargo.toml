@@ -4,3 +4,24 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+tokio = { version = "1.0", features = ["full"] }
+
+[[bin]]
+name = "challenge_01_smart_pointers"
+path = "challenges/01_smart_pointers.rs"
+
+[[bin]]
+name = "challenge_02_concurrency"
+path = "challenges/02_concurrency.rs"
+
+[[bin]]
+name = "challenge_03_unsafe"
+path = "challenges/03_unsafe.rs"
+
+[[bin]]
+name = "challenge_04_async"
+path = "challenges/04_async.rs"
+
+[[bin]]
+name = "challenge_05_macros"
+path = "challenges/05_macros.rs"

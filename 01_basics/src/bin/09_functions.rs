@@ -1,19 +1,19 @@
 /*
     topic: Functions
-    
+
     DEEP DIVE THEORY:
     =================
     Functions are the primary way code is decomposed in Rust.
-    
+
     Parameters:
     - Must ALWAYS have type annotations.
-    
+
     Return Values:
     - Arrow syntax `-> Type`.
     - Implicit Return: The last expression in a block (without a semicolon) is returned.
       `x + 1` returns the value.
       `x + 1;` returns `()` (Unit type / Void).
-    
+
     Statements vs Expressions:
     - **Statement**: Performs an action, returns nothing (e.g., `let x = 6;`).
     - **Expression**: Evaluates to something (e.g., `6`, `x + 1`, `if ...`).
@@ -22,7 +22,7 @@
 
 fn main() {
     print_labeled_measurement(5, 'h');
-    
+
     let x = plus_one(5);
     println!("The value of x is: {}", x);
 }
@@ -45,7 +45,7 @@ fn plus_one(x: i32) -> i32 {
     - If 'C', convert to F: (val * 9/5) + 32
     - If 'F', convert to C: (val - 32) * 5/9
     - Return the converted value as f64.
-    
+
     Note: Ensure you handle integer/float math correctly.
 
     INPUT/OUTPUT TEST CASES:
@@ -55,7 +55,7 @@ fn plus_one(x: i32) -> i32 {
 
     Input: convert_temperature(32.0, 'F')
     Output: 0.0
-    
+
     Input: convert_temperature(100.0, 'C')
     Output: 212.0
 */

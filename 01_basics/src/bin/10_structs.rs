@@ -1,18 +1,18 @@
 /*
     topic: Types - Structs
-    
+
     DEEP DIVE THEORY:
     =================
     Structs allow you to name and package together multiple related values that make up a meaningful group.
-    
+
     1. **Named Structs**: `{ x: i32, y: i32 }`. Clear field names.
     2. **Tuple Structs**: `(i32, i32)`. Named tuples, good for "New Types" (e.g., `struct Color(i32, i32, i32)`).
     3. **Unit Structs**: `struct AlwaysEqual;`. No fields. Useful for Traits.
-    
+
     Methods vs Functions:
     - **Functions** are free-floating (`fn main()`).
     - **Methods** are defined within an `impl` block and their first parameter is always `self`.
-    
+
     The `self` parameter:
     - `&self`: Short for `self: &Self`. Borrows the instance immutably. (Read-only)
     - `&mut self`: Borrows the instance mutably. (Read-Write)
@@ -43,13 +43,13 @@ impl User {
     fn print_info(&self) {
         println!("User: {} ({})", self.username, self.email);
     }
-    
+
     // Method (Mutable Borrow)
     fn consume_login(&mut self) {
         self.sign_in_count += 1;
         println!("Login count updated to {}", self.sign_in_count);
     }
-    
+
     // Method (Ownership logic)
     fn deactivate(mut self) {
         self.active = false;
@@ -61,12 +61,12 @@ impl User {
 fn main() {
     let mut user1 = User::new(
         String::from("rustacean123"),
-        String::from("rust@example.com")
+        String::from("rust@example.com"),
     );
 
     user1.print_info();
     user1.consume_login();
-    
+
     // Ownership transfer
     user1.deactivate();
     // user1.print_info(); // ERROR: Value used after move

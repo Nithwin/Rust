@@ -1,37 +1,37 @@
 /*
     topic: Compound Types (Tuples & Arrays)
-    
+
     DEEP DIVE THEORY:
     =================
     Compound types can group multiple values into one type. Rust has two primitives:
-    
+
     1. **Tuples**:
        - Fixed length: Once declared, they cannot grow or shrink.
        - Heterogeneous: Can contain different types (e.g., `(i32, f64, u8)`).
        - Stored on the Stack: Because size is known at compile time.
        - Access: Dot notation (`tup.0`, `tup.1`).
        - Destructuring: `let (x, y, z) = tup;` breaks it apart.
-       
+
     2. **Arrays**:
        - Fixed length: Specified at compile time `[Type; Length]`.
        - Homogeneous: MUST contain the same type.
        - Stored on the Stack: Very fast access.
        - Access: Bracket notation (`arr[0]`).
-       - Bounds Checking: Rust checks array access at runtime (panic) and compile time (error) 
+       - Bounds Checking: Rust checks array access at runtime (panic) and compile time (error)
          to prevent "Buffer Overflow" attacks common in C/C++.
-         
-    Note: If you need a growable list, use a `Vector` (discussed later). Arrays are for fixed data 
+
+    Note: If you need a growable list, use a `Vector` (discussed later). Arrays are for fixed data
     like "Days of the Week" or "RGB Values".
 */
 
 fn main() {
     // 1. Tuples
     let hero_stats: (String, i32, bool) = (String::from("Thor"), 1500, true);
-    
+
     // Destructuring (Unpacking)
     let (name, power, is_god) = hero_stats;
     println!("Hero: {}, Power: {}, Is God: {}", name, power, is_god);
-    
+
     // Dot Notation
     // We have to use the tuple directly if we didn't destructure or if we want to access fields.
     // Note: We can't access `hero_stats.0` easily here because `name` took ownership of the String!
@@ -41,10 +41,10 @@ fn main() {
 
     // 2. Arrays
     let months = ["Jan", "Feb", "Mar", "Apr"]; // Type: [&str; 4]
-    
+
     // Repeated Value Initialization
     let buffer = [0u8; 5]; // [0, 0, 0, 0, 0]
-    
+
     println!("First Month: {}", months[0]);
     println!("Buffer: {:?}", buffer);
 

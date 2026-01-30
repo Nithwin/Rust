@@ -1,24 +1,24 @@
 /*
     topic: Control Flow - Loops
-    
+
     DEEP DIVE THEORY:
     =================
     Rust provides three kinds of loops:
-    
+
     1. **loop**:
        - Infinite loop.
        - Can return a value using `break value;`.
        - Useful for retrying operations or servers.
-       
+
     2. **while**:
        - Loops while a condition is true.
        - Standard "C-style" while loop.
-       
+
     3. **for**:
        - The most common and safest loop in Rust.
        - Iterates over a collection or a range.
        - `for x in collection` prevents "Off-by-one" errors common in Cstyle `for (i=0; i<len; i++)`.
-    
+
     Ranges:
     - `1..4` -> 1, 2, 3 (Exclusive)
     - `1..=4` -> 1, 2, 3, 4 (Inclusive)
@@ -27,14 +27,14 @@
 fn main() {
     // 1. loop (returning a value)
     let mut counter = 0;
-    
+
     let result = loop {
         counter += 1;
         if counter == 10 {
             break counter * 2; // Returns 20
         }
     };
-    
+
     println!("The result is: {}", result);
 
     // 2. while
@@ -49,7 +49,7 @@ fn main() {
     for i in 1..4 {
         println!("Range (exclusive): {}", i); // 1, 2, 3
     }
-    
+
     // 4. for (Collection)
     let a = [10, 20, 30, 40, 50];
     for element in a {

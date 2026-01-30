@@ -1,18 +1,18 @@
 /*
     topic: Error Handling
-    
+
     DEEP DIVE THEORY:
     =================
     Rust separates errors into two categories:
-    
-    1. **Unrecoverable (`panic!`)**: 
+
+    1. **Unrecoverable (`panic!`)**:
        - The program enters a bugged state it cannot handle (e.g., Index out of bounds).
        - The thread usually crashes and unwinds the stack to clean up memory.
-       
+
     2. **Recoverable (`Result<T, E>`)**:
        - The program can reasonably report and fix logic (e.g., File not found -> Create it).
        - You MUST handle the result. Ignoring a Result is a compiler warning/error.
-       
+
     The ? Operator:
     - `match` is verbose.
     - `?` allows you to say "If result is Ok, give me value. If Err, return the Err from the function immediately".
@@ -40,14 +40,14 @@ fn main() {
                     File::create("hello.txt").unwrap_or_else(|e| {
                         panic!("Problem creating the file: {:?}", e);
                     })
-                },
+                }
                 other_error => {
                     panic!("Problem opening the file: {:?}", other_error);
                 }
             }
-        },
+        }
     };
-    
+
     // 3. Clean error propagation
     match read_username_from_file() {
         Ok(s) => println!("Username read: {}", s),
@@ -59,7 +59,7 @@ fn main() {
 fn read_username_from_file() -> Result<String, io::Error> {
     // The "Long" way
     // let mut f = File::open("hello.txt")?;
-    
+
     // The "Short" way (Chaining)
     let mut s = String::new();
     File::open("hello.txt")?.read_to_string(&mut s)?;
@@ -72,7 +72,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
     Write a function `safe_divide(a: f64, b: f64) -> Result<f64, String>`.
     - If `b` is 0.0, return `Err(String::from("Cannot divide by zero"))`.
     - Otherwise, return `Ok(a / b)`.
-    
+
     In main:
     - Call it with (10.0, 2.0) -> Print "Result: 5.0"
     - Call it with (10.0, 0.0) -> Print "Error: Cannot divide by zero"
