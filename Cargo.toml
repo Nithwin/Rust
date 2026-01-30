@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "01_basics",
+    "02_hex_viewer",
+    "03_safe_shell",
+    "04_advanced"
+]
